@@ -1,5 +1,26 @@
-extends layout
-
-block content
-  h1= title
-  p Welcome to #{title}
+html
+  body
+    script(src="https://cdn.socket.io/socket.io-1.2.0.js")
+    script(src="https://code.jquery.com/jquery-1.11.1.js")
+    h3 Set dish and prediction
+    script.
+      /*($(function () {
+      var socket = io();
+      console.log('socket connected')
+      socket.on('two', function(msg){
+      console.log('start')
+      socket.emit('one', 'hello');
+      });
+      });*/
+    form(action="/api/v1/products/prediction" method="POST")
+      | Dish:
+      br
+      input(type="text" name="dish" placeholder="dishname")
+      br
+      br
+      |   Prediction:
+      br
+      input(type="text" name="predicted" placeholder="1")
+      br
+      br
+      input(type="submit" value="Set")
